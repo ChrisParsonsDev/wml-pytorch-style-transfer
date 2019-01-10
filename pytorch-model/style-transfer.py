@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+'''
+Style Transfer in PyTorch (VGG). To be used with the Watson Machine Learning service in IBM Cloud!
+
+Author: Chris Parsons
+
+Code: https://github.com/chrisparsonsdev/wml-pytorch-style-transfer
+
+'''
+
 from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
@@ -16,9 +25,10 @@ style_image_file = ""
 # Parameters
 training_iters = 5000
 save_every = 400
+# Location to store saved images (COS bucket)..
 output_path = os.environ["RESULT_DIR"]+"/results"
 
-#Main method for allowing parameter Updating
+# Main method for - accepts the command line args.
 def main(argv):
 
     if len(argv) < 6:
