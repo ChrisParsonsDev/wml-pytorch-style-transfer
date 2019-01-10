@@ -122,7 +122,7 @@ This will initialise a Cloud Object Storage instance and Watson Machine Learning
 
 * Copy your "writer" credentials to clipboard
 
-![alt text](./readme-images/15_wml_credentails.png)
+![alt text](./readme-images/15_wml_credentials.png)
 
 * Paste them into the `wml_credentials` dictionary in the notebook.
 
