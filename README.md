@@ -20,7 +20,7 @@ The script takes a couple of command line arguments to let you specify style/con
 
 ```
 
-python3 ./tf-model/style-transfer.py --styleImageFile ${DATA_DIR}/emma.jpg --contentImageFile ${DATA_DIR}/chris.jpeg --trainingIters 2000
+python3 ./tf-model/style-transfer.py --styleImageFile ${DATA_DIR}/style.png --contentImageFile ${DATA_DIR}/content.jpeg --trainingIters 1000
 
 ```
 
