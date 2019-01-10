@@ -16,11 +16,13 @@ You are of course free to use the python script `./pytorch-model/style-transfer.
 
 The script takes a couple of command line arguments to let you specify style/content images as well as the number of training iterations.
 
-Usage:
+**Usage**:
 
-``` python3 ./tf-model/style-transfer.py --styleImageFile ${DATA_DIR}/emma.jpg --contentImageFile ${DATA_DIR}/chris.jpeg --trainingIters 2000
+```
 
-````
+python3 ./tf-model/style-transfer.py --styleImageFile ${DATA_DIR}/emma.jpg --contentImageFile ${DATA_DIR}/chris.jpeg --trainingIters 2000
+
+```
 
 ## Tutorial..
 
@@ -92,7 +94,7 @@ This will initialise a Cloud Object Storage instance and Watson Machine Learning
 
 * Select "Insert Credentials" to automatically import your COS credentials to the notebook. (it doesn't matter which image)
 
-![alt text](./readme-images/11_insert_image_credentails.png)
+![alt text](./readme-images/11_insert_image_credentials.png)
 
 * To connect the notebook to your WML/COS instances you'll need to obtain some API credentials. Click [this link](https://cloud.ibm.com/resources) to view your resources.
 
