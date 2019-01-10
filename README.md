@@ -150,4 +150,4 @@ This will initialise a Cloud Object Storage instance and Watson Machine Learning
 
 * It should look a little like this...
 
-![alt text](./readme-images/20_result.png)
+![alt text](https://media.giphy.com/media/18TziN20tP94Pbwc8G/giphy.gif)
