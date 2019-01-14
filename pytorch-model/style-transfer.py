@@ -23,7 +23,7 @@ content_image_file = ""
 style_image_file = ""
 
 # Parameters
-training_iters = 5000
+training_iters = 2000
 save_every = 400
 # Location to store saved images (COS bucket)..
 output_path = os.environ["RESULT_DIR"]+"/results"
@@ -56,8 +56,6 @@ if __name__ == "__main__":
 # * `vgg19.features`, which are all the convolutional and pooling layers
 # * `vgg19.classifier`, which are the three linear, classifier layers at the end
 # get the "features" portion of VGG19 (do not need the "classifier" portion)
-
-print("I CAN LOG")
 
 vgg = models.vgg19(pretrained=True).features
 
@@ -227,9 +225,8 @@ style_weight = 1e6  # beta
 
 # iteration hyperparameters
 optimizer = optim.Adam([target], lr=0.003)
-steps = 5000  # decide how many iterations to update your image
 
-for ii in range(1, steps+1):
+for ii in range(1, training_iters+1):
     print("Training...")
     ## Get the features from your target image
     ## Then calculate the content loss
