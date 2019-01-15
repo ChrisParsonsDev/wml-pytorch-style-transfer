@@ -9,12 +9,11 @@ Author: Chris Parsons
 Code: https://github.com/chrisparsonsdev/wml-pytorch-style-transfer
 
 '''
-
+import os
+import sys
 from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
-import os
-import sys
 import torch
 import torch.optim as optim
 from torchvision import transforms, models
@@ -219,14 +218,17 @@ STYLE_WEIGHT = 1e6  # beta
 #
 # #### Content Loss
 #
-# The content loss will be the mean squared difference between the target and content features at layer `conv4_2`. This can be calculated as follows:
+# The content loss will be the mean squared difference between the target and content
+# features at layer `conv4_2`. This can be calculated as follows:
 # ```
 # content_loss = torch.mean((target_features['conv4_2'] - CONTENT_FEATURES['conv4_2'])**2)
 # ```
 #
 # #### Style Loss
 #
-# The style loss is calculated in a similar way, only you have to iterate through a number of layers, specified by name in our dictionary `STYLE_WEIGHTS`.
+# The style loss is calculated in a similar way,
+# only you have to iterate through a number of layers, specified by name in our
+# dictionary `STYLE_WEIGHTS`.
 ##
 # Intermittently, we'll print out this loss/save the image to our output dir.
 #
