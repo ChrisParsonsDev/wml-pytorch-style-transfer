@@ -20,34 +20,33 @@ import torch.optim as optim
 from torchvision import transforms, models
 
 # Training Params.
-CONTENT_IMAGE_FILE = ""
-STYLE_IMAGE_FILE = ""
-TRAINING_ITERS = 2000
-SAVE_IMAGE_EVERY = 400
+content_image_file = ""
+style_image_file = ""
+training_iters = 2000
+save_image_every = 400
 
 # Location to store saved images (COS bucket)..
 OUTPUT_PATH = os.environ["RESULT_DIR"]+"/results"
 
-# Main method for - accepts the command line args.
 def main(argv):
     """Set WML Training parameters from user"""
 
     if len(argv) < 6:
         sys.exit("Not enough arguments provided.")
 
-    global CONTENT_IMAGE_FILE, STYLE_IMAGE_FILE, TRAINING_ITERS, SAVE_IMAGE_EVERY
+    global content_image_file, style_image_file, training_iters, save_image_every
 
     i = 1
     while i <= 3:
         arg = str(argv[i])
         if arg == "--contentImageFile":
-            CONTENT_IMAGE_FILE = str(argv[i+1])
+            content_image_file = str(argv[i+1])
         elif arg == "--styleImageFile":
-            STYLE_IMAGE_FILE = str(argv[i+1])
+            style_image_file = str(argv[i+1])
         elif arg == "--trainingIters":
-            TRAINING_ITERS = int(argv[i+1])
+            training_iters = int(argv[i+1])
         elif arg == "--saveImageEvery":
-            SAVE_IMAGE_EVERY = int(argv[i+1])
+            save_image_every = int(argv[i+1])
         i += 2
 
 if __name__ == "__main__":
@@ -105,9 +104,9 @@ def load_image(img_path, max_size=400, shape=None):
 
 print("Loading images..")
 # load in content and style image
-CONTENT = load_image(CONTENT_IMAGE_FILE).to(DEVICE)
+CONTENT = load_image(content_image_file).to(DEVICE)
 # Resize style to match content, makes code easier
-STYLE = load_image(STYLE_IMAGE_FILE, shape=CONTENT.shape[-2:]).to(DEVICE)
+STYLE = load_image(style_image_file, shape=CONTENT.shape[-2:]).to(DEVICE)
 print("done.")
 
 # helper function for un-normalizing an image
@@ -236,7 +235,7 @@ STYLE_WEIGHT = 1e6  # beta
 OPTIMIZER = optim.Adam([TARGET], lr=0.003)
 
 print("Training model...")
-for ii in range(1, TRAINING_ITERS+1):
+for ii in range(1, training_iters+1):
     ## Get the features from your target image
     ## Then calculate the content loss
     target_features = get_features(TARGET, VGG)
@@ -273,7 +272,7 @@ for ii in range(1, TRAINING_ITERS+1):
 
 
     # print loss every few iterations
-    if  ii % SAVE_IMAGE_EVERY == 0:
+    if  ii % save_image_every == 0:
         print("Training: ", ii, {'Total Loss: ': total_loss.item()})
         # print('Total loss: ', total_loss.item())
         # Generate unique filename
