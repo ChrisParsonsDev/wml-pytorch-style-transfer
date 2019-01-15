@@ -57,6 +57,7 @@ if __name__ == "__main__":
 # * `vgg19.classifier`, which are the three linear, classifier layers at the end
 # get the "features" portion of VGG19 (do not need the "classifier" portion)
 
+print("Downloading VGG...")
 vgg = models.vgg19(pretrained=True).features
 
 # freeze all VGG parameters since we're only optimizing the target image
@@ -67,7 +68,7 @@ for param in vgg.parameters():
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 vgg.to(device)
-
+print("done.")
 
 # ### Load in Content and Style Images
 ##
@@ -99,10 +100,12 @@ def load_image(img_path, max_size=400, shape=None):
 
     return image
 
+print("Loading images..")
 # load in content and style image
 content = load_image(content_image_file).to(device)
 # Resize style to match content, makes code easier
 style = load_image(style_image_file, shape=content.shape[-2:]).to(device)
+print("done.")
 
 # helper function for un-normalizing an image
 # and converting it from a Tensor image to a NumPy image for display
@@ -225,9 +228,8 @@ style_weight = 1e6  # beta
 
 # iteration hyperparameters
 optimizer = optim.Adam([target], lr=0.003)
-
+print("Training model...")
 for ii in range(1, training_iters+1):
-    print("Training...")
     ## Get the features from your target image
     ## Then calculate the content loss
     target_features = get_features(target, vgg)
