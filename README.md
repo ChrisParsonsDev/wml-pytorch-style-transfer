@@ -62,9 +62,9 @@ This will initialise a Cloud Object Storage instance and Watson Machine Learning
 
 * Select from URL and insert the URL to the Jupyter notebook in this repo.
 
-``` https://github.com/ChrisParsonsDev/wml-pytorch-style-transfer/blob/master/wml-style-transfer.ipynb
-
- ```
+````
+ https://github.com/ChrisParsonsDev/wml-pytorch-style-transfer/blob/master/wml-style-transfer.ipynb
+````
 
  ![alt text](./readme-images/7_notebook_from_url.png)
 
