@@ -62,9 +62,10 @@ This will initialise a Cloud Object Storage instance and Watson Machine Learning
 
 * Select from URL and insert the URL to the Jupyter notebook in this repo.
 
-````
+```
  https://github.com/ChrisParsonsDev/wml-pytorch-style-transfer/blob/master/wml-style-transfer.ipynb
-````
+
+```
 
  ![alt text](./readme-images/7_notebook_from_url.png)
 
@@ -144,7 +145,7 @@ This will initialise a Cloud Object Storage instance and Watson Machine Learning
 
 ![alt text](./readme-images/18_cos_bucket.png)
 
-* Select the trained images, and "download"
+* Select the trained images (they'll be called something like `results****`) , and "download"
 
 ![alt text](./readme-images/19_training_image_download.png)
 
