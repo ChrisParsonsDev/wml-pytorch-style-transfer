@@ -28,6 +28,8 @@ python3 ./pytorch-model/style-transfer.py --styleImageFile ${DATA_DIR}/style.png
 
 ### Create Watson Studio Service
 
+**Note** *It may take a few minutes for IBM Cloud to configure your Watson Studio Service instance.*
+
 * Visit https://cloud.ibm.com/ and create a Watson Machine Learning service.
 
 * Click the Catalog tab and search "Watson Studio".
@@ -41,6 +43,8 @@ python3 ./pytorch-model/style-transfer.py --styleImageFile ${DATA_DIR}/style.png
 
 
 ### Create a Watson Studio project
+
+**Note** *You'll be asked what region you'd like to create your Watson Machine Learning Service Instance in. While any region is suitable for this code lab, I'd recommend the US South region.*
 
 * From the landing page select "create project" and select "deep learning"
 
@@ -90,6 +94,8 @@ This will initialise a Cloud Object Storage instance and Watson Machine Learning
 
 
 ### Obtaining Credentials
+
+Follow the instructions in the [Jupyter notebook](./wml-style-transfer.ipynb) to make sure that you're inserting the credentials in the right place.  
 
 #### Cloud Object Storage
 
